@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package initial;
+
+// 최초 패킷 구조
+// 여기서 deviceId는 모바일 게임 기준 각각의 모바일에는 고유한 deviceId 가 존재하므로
+// 그래서 deviceId를 PK(기본키)로 자주 사용한다.
+message InitialPacket {
+  string deviceId = 1;
+}
