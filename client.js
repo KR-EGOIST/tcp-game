@@ -46,7 +46,7 @@ client.connect(PORT, HOST, async () => {
   await loadProtos();
 
   const message = {
-    handlerId: 2,
+    handlerId: 1,
     userId: 'xyz',
     payload: {},
     clientVersion: '1.0.0',
