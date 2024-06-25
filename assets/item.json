@@ -1,0 +1,30 @@
+{
+  "name": "item",
+  "version": "1.0.0",
+  "data": [
+    { "id": 1, "score": 10, "width": 50, "height": 50, "image": "images/items/pokeball_red.png" },
+    {
+      "id": 2,
+      "score": 20,
+      "width": 50,
+      "height": 50,
+      "image": "images/items/pokeball_yellow.png"
+    },
+    {
+      "id": 3,
+      "score": 30,
+      "width": 50,
+      "height": 50,
+      "image": "images/items/pokeball_purple.png"
+    },
+    { "id": 4, "score": 40, "width": 50, "height": 50, "image": "images/items/pokeball_cyan.png" },
+    {
+      "id": 5,
+      "score": 50,
+      "width": 50,
+      "height": 50,
+      "image": "images/items/pokeball_orange.png"
+    },
+    { "id": 6, "score": 60, "width": 50, "height": 50, "image": "images/items/pokeball_pink.png" }
+  ]
+}
