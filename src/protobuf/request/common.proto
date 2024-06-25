@@ -1,0 +1,15 @@
+// proto 몇 버전일 거냐?
+syntax = 'proto3';
+
+// 패킷 이름
+// 아래의 패킷 구조를 묶는 전체적인 최상위 이름
+package common;
+
+// 공통 패킷 구조
+message Packet {
+  uint32 handlerId = 1;      // 핸들러 ID (4바이트)
+  string userId = 2;         // 유저 ID (UUID, 16바이트)
+  string clientVersion = 3;  // 클라이언트 버전 (문자열)
+  uint32 sequence = 4;       // 유저의 호출 수 (42억)
+  bytes payload = 5;         // 실제 데이터
+}
