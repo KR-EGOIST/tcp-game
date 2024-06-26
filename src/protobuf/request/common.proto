@@ -1,5 +1,4 @@
-// proto 몇 버전일 거냐?
-syntax = 'proto3';
+syntax = "proto3";
 
 // 패킷 이름
 // 아래의 패킷 구조를 묶는 전체적인 최상위 이름

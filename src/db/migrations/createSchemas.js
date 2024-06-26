@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import pools from '../database.js';
 import { fileURLToPath } from 'url';
+import pools from '../database.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
