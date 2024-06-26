@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package game;
+
+// 게임 생성 핸들러 payload
+message CreateGamePayload {
+  int64 timestamp = 1;       // 게임 생성 시간
+}
+
+// 게임 참가 핸들러 payload
+message JoinGamePayload {
+  string gameId = 1;         // 게임 ID (UUID)
+  int64 timestamp = 2;       // 게임 참가 시간
+}
