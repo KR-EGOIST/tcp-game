@@ -4,7 +4,7 @@ import { ErrorCodes } from './errorCodes.js';
 export const handlerError = (socket, error) => {
   let responseCode;
   let message;
-  console.log(error);
+
   if (error.code) {
     responseCode = error.code;
     message = error.message;

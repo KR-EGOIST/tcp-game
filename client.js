@@ -60,6 +60,11 @@ const client = new net.Socket();
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// SIGINT = CTRL + C
+process.on('SIGINT', () => {
+  client.end(() => process.exit(0));
+});
+
 client.connect(PORT, HOST, async () => {
   console.log('Connected to server');
   await loadProtos();

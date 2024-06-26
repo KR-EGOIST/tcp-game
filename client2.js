@@ -7,7 +7,7 @@ const PACKET_TYPE_LENGTH = 1; // 패킷타입을 나타내는 1바이트
 let userId;
 let sequence;
 const deviceId = 'xxxxx';
-let gameId = '5b0cf014-28dd-420c-9a3d-c024147b9f46';
+let gameId = 'e6ea814b-685d-4d3d-a779-8e17542e40f1';
 
 const createPacket = (handlerId, payload, clientVersion = '1.0.0', type, name) => {
   const protoMessages = getProtoMessages();
@@ -60,6 +60,11 @@ const PORT = 5555;
 const client = new net.Socket();
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// SIGINT = CTRL + C
+process.on('SIGINT', () => {
+  client.end(() => process.exit(0));
+});
 
 client.connect(PORT, HOST, async () => {
   console.log('Connected to server');

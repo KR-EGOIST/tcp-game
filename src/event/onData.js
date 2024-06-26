@@ -28,8 +28,6 @@ export const onData = (socket) => async (data) => {
       // 남아있는 데이터는 다시 socket.buffer에 넣어라
       socket.buffer = socket.buffer.slice(length);
 
-      console.log(`length: ${length}, packetType: ${packetType}`);
-
       try {
         switch (packetType) {
           case PACKET_TYPE.PING:

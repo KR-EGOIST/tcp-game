@@ -30,6 +30,7 @@ export const packetParser = (data) => {
     );
   }
 
+  // 핸들러 ID에 따라 적절한 payload 구조를 디코딩
   const protoTypeName = getProtoTypeNameByHandlerId(handlerId);
   if (!protoTypeName) {
     throw new CustomError(ErrorCodes.UNKNOWN_HANDLER_ID, `알 수 없는 핸들러 ID: ${handlerId}`);
@@ -47,13 +48,13 @@ export const packetParser = (data) => {
 
   // 필드 검증 추가
   // 위의 decode 과정에서 verify 하는 과정이 포함되어 있어서 굳이 또 검증할 필요는 없다.
-  const errorMessage = PayloadType.verify(payload);
-  if (errorMessage) {
-    throw new CustomError(
-      ErrorCodes.INVALID_PACKET,
-      `패킷 구조가 일치하지 않습니다: ${errorMessage}`,
-    );
-  }
+  // const errorMessage = PayloadType.verify(payload);
+  // if (errorMessage) {
+  //   throw new CustomError(
+  //     ErrorCodes.INVALID_PACKET,
+  //     `패킷 구조가 일치하지 않습니다: ${errorMessage}`,
+  //   );
+  // }
 
   // 필드가 비어 있거나, 필수 필드가 누락된 경우 처리
   const expectedFields = Object.keys(PayloadType.fields); // fields 는 .proto 의 handlerId, userId, deviceId 등등
