@@ -21,6 +21,34 @@ const makeNotification = (message, type) => {
   return Buffer.concat([packetLength, packetType, message]);
 };
 
+// 유저의 위치 업데이트 패킷 생성 함수
+// 유저들에 대한 위치정보를 그냥 배열로 쭉 받아가지고 그거를 Payload 에 묶어서 보냅니다.
+export const createLocationPacket = (users) => {
+  const protoMessages = getProtoMessages();
+  const Location = protoMessages.gameNotification.LocationUpdate;
+
+  const payload = { users };
+  // proto 에서 create 는 인자로 받은 payload 를 객체(메시지) 형식으로 변환해준다.
+  const message = Location.create(payload);
+  // proto 에서 encode 는 인자로 받은 message 를 버퍼 형식으로 변환해준다.
+  const locationPacket = Location.encode(message).finish();
+  return makeNotification(locationPacket, PACKET_TYPE.LOCATION);
+};
+
+// 게임 시작하는 패킷 생성 함수
+// 유저들에 대한 위치정보를 그냥 배열로 쭉 받아가지고 그거를 Payload 에 묶어서 보냅니다.
+export const gameStartNotification = (gameId, timestamp) => {
+  const protoMessages = getProtoMessages();
+  const Start = protoMessages.gameNotification.Start;
+
+  const payload = { gameId, timestamp };
+  // proto 에서 create 는 인자로 받은 payload 를 객체(메시지) 형식으로 변환해준다.
+  const message = Start.create(payload);
+  // proto 에서 encode 는 인자로 받은 message 를 버퍼 형식으로 변환해준다.
+  const startPacket = Start.encode(message).finish();
+  return makeNotification(startPacket, PACKET_TYPE.GAME_START);
+};
+
 // 핑패킷을 만들어주는 함수
 export const createPingPacket = (timestamp) => {
   const protoMessages = getProtoMessages();

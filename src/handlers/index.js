@@ -4,6 +4,7 @@ import CustomError from '../utils/error/customError.js';
 import { ErrorCodes } from '../utils/error/errorCodes.js';
 import createGameHandler from './game/createGame.handler.js';
 import joinGameHandler from './game/joinGame.handler.js';
+import locationUpdateHandler from './game/locationUpdate.handler.js';
 
 // protoType은 각각의 핸들러에서 사용하는 payload의 이름
 // payload에 구성되어 있는 protobuf 구조체의 이름, 메시지의 이름
@@ -21,6 +22,11 @@ const handlers = {
     handler: joinGameHandler,
     protoType: 'game.JoinGamePayload',
   },
+  [HANDLER_IDS.UPDATE_LOCATION]: {
+    handler: locationUpdateHandler,
+    protoType: 'game.LocationUpdatePayload',
+  },
+  // 다른 핸들러들을 추가
 };
 
 // 각각의 handlerId 조회
