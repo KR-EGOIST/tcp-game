@@ -168,7 +168,7 @@ client.on('data', (data) => {
       // x축을 0.1 씩 이동하므로 0.1초 당 하나 씩 보내주면 된다.
       setInterval(() => {
         updateLocation(client);
-      }, 1000);
+      }, 100);
     } catch (error) {
       console.error(error);
     }

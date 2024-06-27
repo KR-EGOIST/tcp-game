@@ -77,7 +77,7 @@ const sendPong = (socket, timestamp) => {
 };
 
 const updateLocation = (socket) => {
-  x += 0.3;
+  x += 1;
   const packet = createPacket(6, { gameId, x, y }, '1.0.0', 'game', 'LocationUpdatePayload');
 
   sendPacket(socket, packet);
@@ -148,7 +148,9 @@ client.on('data', async (data) => {
         pingMessage.timestamp.unsigned,
       );
       // console.log('Received ping with timestamp:', timestampLong.toNumber());
-      await delay(1500);
+      // 1초의 레이턴시를 가지고 PingPong패킷을 왔다 갔다 합니다.
+      // 그러면 라운드 트립 레이턴시로 계산하면 500? 1000?
+      await delay(1000);
       await sendPong(client, timestampLong.toNumber());
     } catch (pongError) {
       console.error('Ping 처리 중 오류 발생:', pongError);
@@ -166,7 +168,7 @@ client.on('data', async (data) => {
       // 위치 업데이트 패킷 전송
       setInterval(() => {
         updateLocation(client);
-      }, 1500);
+      }, 1000);
     } catch (error) {
       console.error(error);
     }
