@@ -6,7 +6,7 @@ const TOTAL_LENGTH = 4; // 전체 길이를 나타내는 4바이트
 const PACKET_TYPE_LENGTH = 1; // 패킷타입을 나타내는 1바이트
 
 let userId;
-let gameId = 'd106f78c-45e5-4f4c-8e16-0b585a621b37';
+let gameId = '8b85130e-1ac8-41ac-ba26-c31fd0a1828a';
 let sequence = 0;
 const deviceId = 'xxxxx';
 let x = 0.0;
@@ -149,7 +149,7 @@ client.on('data', async (data) => {
       );
       // console.log('Received ping with timestamp:', timestampLong.toNumber());
       // 1초의 레이턴시를 가지고 PingPong패킷을 왔다 갔다 합니다.
-      // 그러면 라운드 트립 레이턴시로 계산하면 500? 1000?
+      // 그러면 라운드 트립 레이턴시로 계산하면 서버와 500ms의 차이가 생깁니다.
       await delay(1000);
       await sendPong(client, timestampLong.toNumber());
     } catch (pongError) {

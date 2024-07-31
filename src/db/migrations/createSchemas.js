@@ -26,7 +26,7 @@ const createSchemas = async () => {
     // 추가할 db 가 있으면 여기에 await executeSqlFile 하면 된다.
     console.log('데이터베이스 테이블이 성공적으로 생성되었습니다.');
   } catch (err) {
-    console.error('데이터베이스 테이블 생성 중 오류가 발생했습니다:', error);
+    console.error('데이터베이스 테이블 생성 중 오류가 발생했습니다:', err);
   }
 };
 

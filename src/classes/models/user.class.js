@@ -32,6 +32,7 @@ class User {
     const now = Date.now();
     // (현재 시간 - 받은 데이터의 시간) / 2
     // 나누기 2 인 이유는 왕복이라서
+    // 즉, 이 부분은 서버에서 클라로 이동하는 시간만 계산해서 보내는거라 나누기 2를 한 것이다.
     this.latency = (now - data.timestamp) / 2;
     console.log(`Received pong from user ${this.id} at ${now} with latency ${this.latency}ms`);
   }
